@@ -7,9 +7,12 @@ def bubbleSort(alist):
 	for passnum in range(len(alist)-1,0,-1):
 
 		for i in range(passnum):
-			#print "Iteration %s:\t%s"%(counter, alist)
+			print "Iteration %s:\t%s"%(counter, alist)
 			if alist[i]>alist[i+1]:
-				print "check if i is larger than i+1, and if so, swap i and i+1"				
+				#print "check if i is larger than i+1, and if so, swap i and i+1"
+				temp = alist[i]
+				alist[i] = alist[i+1]
+				alist[i+1] = temp
 
 			counter+=1
 
@@ -19,7 +22,7 @@ def main():
 
 	#### EVALUATION PART START ####
 	#
-	#data_n=int(sys.argv[1])	
+	#data_n=int(sys.argv[1])
 	#myList = np.random.random_integers(0, 10000, data_n).tolist()
 	#print "bubblesort", data_n, counter
 	#### EVALUATION PART END ####
