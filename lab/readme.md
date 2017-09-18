@@ -3,6 +3,18 @@
 
 ---
 
+## 20170918 Lab07
+
+### Naive Bayes
+
++ classification에 사용하는 알고리즘
++ P(Y | X)를 바로 계산하지 않고 P(X | Y)를 구한다.
++ P(X | Y) = P(x1, x2, ..., xk | Y)
+  + 여기서 naive bayes는 x1부터 xk가 모두 독립적이라고 가정한다.
+  + empirical 결과가 괜찮아서 naive bayes를 사용해왔다.
+
+---
+
 ## 20170904 Lab05
 
 ### 01 linear regression vs. logistic regression
