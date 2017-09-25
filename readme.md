@@ -1,6 +1,79 @@
 
 ---
 
+### EM (20170925)
+
+### 01 EM을 하는 이유
+
++ 모델의 parameter를 estimation 하려고
+
+
+### 02 상황 설정
+
++ 데이터가 2개의 Gaussian에 의해 생성되었다.
+  + G1(mu1, sigma1)
+  + G2(mu2, simga2)
+  + 하지만 각 parameter 값은 모르는 상태이다.
++ 섞여 있는 데이터를 2개의 그룹으로 clustering 하고자 한다.
++ 모델의 paramter 즉, (mu1, sigma2), (mu2, simga2)를 추정해야 한다!
+
+### 03 Democratic Decision
+
++ P(data | model)
++ 모든 데이터가 참여해서 parameter를 정한다.
++ 그런데 모든 데이터가 동등하게 참여하면 모델1과 모델2의 parameter가 같아지므로 하나마나이다.
++ 따라서 데이터에 가중치를 줘야 한다.
+
+### 04 Gaussian Mixture model
+
++ Gaussian 모델을 k개 섞어서 하나의 모델로 만든다.
+
+### 05 Expectation Maximization
+
++ E-step과 M-step을 반복한다.
++ M-step을 하면 모델의 새로운 parameter가 생긴다.
++ 새로운 parameter로 likelihood를 계산한다.
+
+#### E-step
+
++ Expectation : Expected value of latent variables
+
+#### 가우시안에서 latent variable의 의미
+
++ 모든 데이터 포인트가 mu_k를 계산할 때 참여하는데, 데이터마다 어느 모델에서 생성되었는지 모르므로 비중을 equally하게 두면 안된다.
++ 각 데이터가 계산에 관여하는 비중이 latent variable이 된다.
++ 각 데이터가 어느 모델에서 생성되었는지를 고려한 값이 latent variable이다.
+
+### 04-1 HMM (Hidden Markov 모델)
+
++ 어느 코인에서 나왔는지 알고 싶어서 HMM을 사용한다.
++ HMM 모델의 parameter
+  + character emission probability
+  + state transition probability
++ HMM 모델의 좋고 나쁨의 기준 : likelihood
+  + P(data | model)
+
+### latent variable을 사용하는 이유
+
++ 모델 parameter estimation할 때 어떤 정보가 있어야 가능할까?
++ 즉, latent variable로 무엇을 써야 할까?
++ latent variable을 결정하면 모델 parameter estimation을 할 수 있다.
+
+### HMM의 수는 무한대
+
++ 가능한 모든 HMM의 수는 무수히 많으므로 불가능
++ 그래서 EM을 사용함
+
+### dynamic programming
+
++ 작은 문제의 solution을 저장해두고 필요할 때마다 갖다가 쓴다.
++ 즉 작은 문제의 solution을 combine해서 큰 문제의 solution을 구한다.
+
+
+
+
+---
+
 ### W3 Decision Tree
 
 #### Pruning
@@ -105,7 +178,7 @@
 
 + 5개 데이터
   + bagging 샘플링 : 평균적으로 비슷하게 샘플링
-  + boosting 샘플링 : 
+  + boosting 샘플링 :
 
 > **Note:** Boosting은 수업 자료에 없음
 
