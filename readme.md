@@ -1,12 +1,12 @@
 
+
 ---
 
-### EM (20170925)
+## EM (Lecture 20170925)
 
 ### 01 EM을 하는 이유
 
 + 모델의 parameter를 estimation 하려고
-
 
 ### 02 상황 설정
 
