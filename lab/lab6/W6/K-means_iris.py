@@ -12,6 +12,8 @@ iris = datasets.load_iris()
 X = iris.data
 y = iris.target
 
+print X[:,0]
+
 estimators = [('k=8', KMeans(n_clusters=8)),
               ('k=3', KMeans(n_clusters=3)),
               ('k=3 (random init)', KMeans(n_clusters=3, n_init=1,
@@ -30,14 +32,14 @@ for name, est in estimators:
 
 	# measure cluster qualities
 	print('%s\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'
-          % (name, 
+          % (name,
              metrics.homogeneity_score(y, est.labels_),
              metrics.completeness_score(y, est.labels_),
              metrics.v_measure_score(y, est.labels_),
              metrics.adjusted_rand_score(y, est.labels_),
              metrics.adjusted_mutual_info_score(y, est.labels_),
              metrics.silhouette_score(X, est.labels_, metric='euclidean')))
-			
+
 
 	ax.scatter(X[:, 3], X[:, 0], X[:, 2], c=labels.astype(np.float), edgecolor='k')
 
@@ -73,4 +75,3 @@ ax.dist = 12
 
 #fig.show()
 plt.show()
-
