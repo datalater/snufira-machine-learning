@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>report_v3</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>report_v4</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11907,7 +11907,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.1-Logistic-Regression">3.1 Logistic Regression<a class="anchor-link" href="#3.1-Logistic-Regression">&#182;</a></h3>
+<h3 id="3.1-Logistic-Regression">3.1 Logistic Regression<a class="anchor-link" href="#3.1-Logistic-Regression">&#182;</a></h3><ul>
+<li>두 class 데이터를 직선으로 경계를 나누는 linear classifier의 각 variable에 대한 weight와 intercept를 포함한 coefficients는 아래와 같았다.</li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -12015,17 +12018,10 @@ dtype: float64
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.1.1-Observation">3.1.1 Observation<a class="anchor-link" href="#3.1.1-Observation">&#182;</a></h3><p>두 class 데이터를 직선으로 경계를 나누는 linear classifier의 각 variable에 대한 weight와 intercept를 포함한 coefficients는 위 결과와 같았다.</p>
+<h3 id="3.2-Random-Forest">3.2 Random Forest<a class="anchor-link" href="#3.2-Random-Forest">&#182;</a></h3><ul>
+<li>Random Forest 결과 가장 informative한 상위 5개 feature는 순서대로 <strong>perimeter_worst, concave points_worst, concave points_mean, area_worst, radius_worst</strong>였다.</li>
+</ul>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.2-Random-Forest">3.2 Random Forest<a class="anchor-link" href="#3.2-Random-Forest">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12101,17 +12097,10 @@ dtype: float64
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.2.1-Observation">3.2.1 Observation<a class="anchor-link" href="#3.2.1-Observation">&#182;</a></h3><p>Random Forest 결과 가장 informative한 상위 5개 feature는 <strong>perimeter_worst, area_worst, concave points_mean, radius_worst, concave points_worst</strong>순이었다. 다만 상위 4개 feature의 importance가 두드러졌고 5번째부터는 나머지 feature와 큰 차이의 importance를 보여주진 못했다.</p>
+<h3 id="3.3-Neural-Network-(MLP)">3.3 Neural Network (MLP)<a class="anchor-link" href="#3.3-Neural-Network-(MLP)">&#182;</a></h3><ul>
+<li>Neural Network 알고리즘은 hyperparameter인 hidden layer의 개수를 바꿔가며 3가지 모델을 만들었다. 기본적으로 hidden layer 하나당 hidden units를 128개로 두고, hidden layer의 개수를 추가하는 식으로 3가지 모델을 구성했다. hidden layer의 개수가 늘어날수록 cross validation score가 증가하는 것을 알 수 있었다. 다만, hidden layer의 수가 증가할 때마다 parameter 개수가 기하급수적으로 늘어나는 만큼 모델이 overfitting 될 확률은 매우 높을 것으로 예상되었다. training data와 분포가 이질적인 test data가 들어올 경우 parameter 개수가 매우 많은 모델의 예측률은 떨어질 것으로 예상되기 때문이다.</li>
+</ul>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.3-Neural-Network-(MLP)">3.3 Neural Network (MLP)<a class="anchor-link" href="#3.3-Neural-Network-(MLP)">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12216,17 +12205,10 @@ dtype: float64
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.3.1-Observation">3.3.1 Observation<a class="anchor-link" href="#3.3.1-Observation">&#182;</a></h3><p>Neural Network 알고리즘은 hyperparameter인 hidden layer의 개수를 바꿔가며 3가지 모델을 만들었다. 기본적으로 hidden layer 하나당 hidden units를 128개로 두고, hidden layer의 개수를 추가하는 식으로 3가지 모델을 구성했다. hidden layer의 개수가 늘어날수록 cross validation score가 증가하는 것을 알 수 있었다. 다만, hidden layer의 수가 증가할 때마다 parameter 개수가 기하급수적으로 늘어나는 만큼 모델이 overfitting 될 확률은 매우 높을 것으로 예상되었다. training data와 분포가 이질적인 test data가 들어올 경우 parameter 개수가 매우 많은 모델의 예측률은 떨어질 것으로 예상되기 때문이다.</p>
+<h3 id="3.4-K-means">3.4 K-means<a class="anchor-link" href="#3.4-K-means">&#182;</a></h3><ul>
+<li>Adjusted Rand Index와 Silhouette Score를 기준으로 보면 cluster의 개수 k=2일 때 가장 좋은 결과가 나왔다. 실제 데이터 역시 class가 2개 존재했고 clustering 또한 2개로 나누는 것이 가장 성능이 좋다는 것을 보여줬기 때문에, clustering 알고리즘이 잘 작동한다고 판단할 수 있었다.</li>
+</ul>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.4-K-means">3.4 K-means<a class="anchor-link" href="#3.4-K-means">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12302,26 +12284,7 @@ k=10	0.660	0.233	0.345	0.231	0.230	0.468
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.4.1-Observation">3.4.1 Observation<a class="anchor-link" href="#3.4.1-Observation">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Adjusted Rand Index와 Silhouette Score를 기준으로 보면 cluster의 개수 k=2일 때 가장 좋은 결과가 나왔다. 실제 데이터 역시 class가 2개 존재했고 clustering 또한 2개로 나누는 것이 가장 성능이 좋다는 것을 보여줬기 때문에, clustering 알고리즘이 잘 작동한다고 판단할 수 있었다.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.-Conclusion">4. Conclusion<a class="anchor-link" href="#4.-Conclusion">&#182;</a></h2><p>지금까지 4가지 알고리즘을 사용해서 WDBC 데이터에 대한 predictive model을 만들고 모델의 성능을 평가 및 비교했다. 정확도 측면에서 보면, classification에 사용한 3가지 알고리즘 중 cross validation score가 가장 높은 알고리즘은 Random Forest (96.71%) &gt; Logistic Regresson (94.44%) &gt; Neural Network (91.18%) 순이었다. 따라서 test data를 예측하기 위해 Random Forest 모델을 사용하는 것이 가장 성능이 높을 것으로 예상된다. 그리고 clustering 알고리즘인 K-means 모델의 결과를 보면 Silhouette score가 가장 높은 모델은 cluster의 개수 k=2일 때였다. 따라서 만약 WDBC 데이터에 label이 없었다 하더라도 악성 종양과 양성 종양의 feature만으로도 cluster가 2개로 잘 구분될 가능성이 높다고 판단된다.</p>
+<h2 id="4.-Conclusion">4. Conclusion<a class="anchor-link" href="#4.-Conclusion">&#182;</a></h2><p>지금까지 4가지 알고리즘을 사용해서 WDBC 데이터에 대한 predictive model을 만들고 모델의 성능을 평가 및 비교했다. 정확도 측면에서 보면, classification에 사용한 3가지 알고리즘 중 cross validation score가 가장 높은 알고리즘은 Random Forest (96.32%) &gt; Logistic Regresson (95.09%) &gt; Neural Network (92.27%) 순이었다. 따라서 test data를 예측하기 위해 Random Forest 모델을 사용하는 것이 가장 성능이 높을 것으로 예상된다. 그리고 clustering 알고리즘인 K-means 모델의 결과를 보면 Silhouette score가 가장 높은 모델은 cluster의 개수 k=2일 때였다. 따라서 만약 WDBC 데이터에 label이 없었다 하더라도 악성 종양과 양성 종양의 feature만으로도 cluster가 2개로 잘 구분될 가능성이 높다고 판단된다.</p>
 
 </div>
 </div>
